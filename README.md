@@ -6,7 +6,7 @@
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/070f1a541d9d4dd19e2a07f226bdea03)](https://www.codacy.com/gh/OvisTek/rpc-net/dashboard?utm_source=github.com&utm_medium=referral&utm_content=OvisTek/rpc-net&utm_campaign=Badge_Grade)
 [![License](https://img.shields.io/badge/license-MIT-orange.svg?style=flat)](LICENSE)
 
-#### **Lightweight JS Remote Procedure Call (RPC) Framework using WebSockets**
+#### **Lightweight JS Remote Procedure Call (RPC) Framework using Socket.io**
 
 * * *
 

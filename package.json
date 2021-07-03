@@ -1,7 +1,7 @@
 {
   "name": "@ovistek/rpc-net",
   "version": "0.0.1",
-  "description": "Lightweight JS Remote Procedure Call (RPC) Framework using WebSockets",
+  "description": "Lightweight JS Remote Procedure Call (RPC) Framework using Socket.io",
   "main": "src/index.js",
   "module": "src/index.js",
   "types": "src/index.d.ts",
@@ -20,5 +20,7 @@
     "url": "https://github.com/OvisTek/rpc-net/issues"
   },
   "homepage": "https://github.com/OvisTek/rpc-net",
-  "devDependencies": {}
+  "dependencies": {
+    "socket.io": "^4.1.2"
+  }
 }
