@@ -1,4 +1,4 @@
-const io = require("socket.io");
+const io = require("socket.io-client");
 
 class Client {
     constructor(address, port = null) {
@@ -16,7 +16,12 @@ class Client {
 
     connect() {
         if (this._socket === null) {
+            console.log("Client.connect() - attempting to connect to address " + this._address);
             this._socket = io(this._address);
+
+            this._socket.on("disconnect", () => {
+                this.disconnect();
+            });
 
             return true;
         }

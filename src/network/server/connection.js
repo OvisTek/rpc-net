@@ -1,5 +1,5 @@
 class Connection {
-    constructor(server, socket) {
+    constructor(socket, server) {
         this._socket = socket;
         this._server = server;
 

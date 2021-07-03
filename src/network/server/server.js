@@ -2,8 +2,8 @@ const io = require("socket.io");
 const Connection = require("./connection");
 
 class Server {
-    constructor(address, port = null) {
-        this._address = port === null ? address : address + ":" + port;
+    constructor(port) {
+        this._address = port;
         this._server = null;
         this._connections = new Array();
     }
@@ -20,14 +20,20 @@ class Server {
         return this._connections;
     }
 
-    connect() {
+    connect(connectionListener = null) {
         if (this._server === null) {
-            this._server = io.listen(this._address);
+            this._server = io(this._address);
+
+            console.log("Server.connect() - server launched on address " + this._address);
 
             this._server.on("connection", (socket) => {
-                const connection = new Connection(socket);
+                const connection = new Connection(socket, this);
 
                 this._connections.push(connection);
+
+                if (connectionListener !== null) {
+                    connectionListener(connection);
+                }
             });
 
             return true;
