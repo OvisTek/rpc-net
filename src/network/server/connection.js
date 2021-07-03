@@ -13,11 +13,11 @@ class Connection {
         }
     }
 
-    get serverInstance() {
+    get server() {
         return this._server;
     }
 
-    get socketInstance() {
+    get socket() {
         return this._socket;
     }
 

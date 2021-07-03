@@ -46,6 +46,18 @@ class Server {
 
         return false;
     }
+
+    remove(connection) {
+        const index = this._connections.indexOf(connection);
+
+        if (index >= 0) {
+            this._connections.splice(index, 1);
+
+            return true;
+        }
+
+        return false;
+    }
 }
 
 module.exports = Server;
