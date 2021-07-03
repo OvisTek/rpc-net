@@ -1,0 +1,24 @@
+{
+  "name": "@ovistek/rpc-net",
+  "version": "0.0.1",
+  "description": "Lightweight JS Remote Procedure Call (RPC) Framework using WebSockets",
+  "main": "src/index.js",
+  "module": "src/index.js",
+  "types": "src/index.d.ts",
+  "scripts": {
+    "clean": "rm -rf node_modules package-lock.json",
+    "clean:install": "npm run clean && npm install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OvisTek/rpc-net.git"
+  },
+  "keywords": [],
+  "author": "OvisTek",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/OvisTek/rpc-net/issues"
+  },
+  "homepage": "https://github.com/OvisTek/rpc-net",
+  "devDependencies": {}
+}
