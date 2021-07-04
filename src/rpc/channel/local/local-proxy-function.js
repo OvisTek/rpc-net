@@ -1,14 +1,14 @@
 const Util = require("../../util/util");
 
 /**
- * This is a proxy container that holds the a function that needs to be executed
+ * This is a proxy container that holds a function that can be safely executed
  */
-class ProxyFunction {
+class LocalProxyFunction {
     constructor(value) {
         this._value = value;
 
         if (!Util.isFunction(this._value)) {
-            throw new TypeError("ProxyFunction(value) - value must be a function");
+            throw new TypeError("LocalProxyFunction(value) - value must be a function");
         }
     }
 
@@ -41,4 +41,4 @@ class ProxyFunction {
     }
 }
 
-module.exports = ProxyFunction;
+module.exports = LocalProxyFunction;
