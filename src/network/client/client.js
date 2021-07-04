@@ -31,6 +31,8 @@ class Client {
 
     disconnect() {
         if (this._socket !== null) {
+            // removes all listeners
+            this._socket.offAny();
             this._socket.disconnect();
             this._socket = null;
 

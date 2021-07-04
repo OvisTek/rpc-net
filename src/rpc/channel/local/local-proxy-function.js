@@ -1,4 +1,4 @@
-const Util = require("../../util/util");
+const Util = require("./../../../util/util");
 
 /**
  * This is a proxy container that holds a function that can be safely executed
