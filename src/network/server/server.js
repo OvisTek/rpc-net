@@ -6,6 +6,28 @@ class Server {
         this._address = port;
         this._server = null;
         this._connections = new Array();
+
+        // handlers
+        this._onConnectionAddedHandler = null;
+        this._onConnectionDroppedHandler = null;
+    }
+
+    set onClientAdded(value) {
+        if (!value) {
+            this._onConnectionAddedHandler = null;
+        }
+        else {
+            this._onConnectionAddedHandler = value;
+        }
+    }
+
+    set onClientRemoved(value) {
+        if (!value) {
+            this._onConnectionDroppedHandler = null;
+        }
+        else {
+            this._onConnectionDroppedHandler = value;
+        }
     }
 
     get socket() {
@@ -20,7 +42,7 @@ class Server {
         return this._connections;
     }
 
-    connect(connectionListener = null) {
+    connect() {
         if (this._server === null) {
             this._server = io(this._address);
 
@@ -31,8 +53,8 @@ class Server {
 
                 this._connections.push(connection);
 
-                if (connectionListener !== null) {
-                    connectionListener(connection);
+                if (this._onConnectionAddedHandler !== null) {
+                    this._onConnectionAddedHandler(connection);
                 }
             });
 
@@ -46,6 +68,7 @@ class Server {
         if (this._server !== null) {
             this._server.disconnect();
             this._server = null;
+            this._connections = new Array();
 
             return true;
         }
@@ -58,6 +81,10 @@ class Server {
 
         if (index >= 0) {
             this._connections.splice(index, 1);
+
+            if (this._onConnectionDroppedHandler !== null) {
+                this._onConnectionDroppedHandler(connection);
+            }
 
             return true;
         }

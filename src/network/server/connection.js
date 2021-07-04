@@ -1,7 +1,10 @@
+const Util = require("../../util/util");
+
 class Connection {
     constructor(socket, server) {
         this._socket = socket;
         this._server = server;
+        this._id = Util.id();
 
         if (this._socket) {
             this._socket.on("disconnect", () => {
@@ -11,6 +14,10 @@ class Connection {
                 this._server = null;
             });
         }
+    }
+
+    get id() {
+        return this._id;
     }
 
     get server() {
