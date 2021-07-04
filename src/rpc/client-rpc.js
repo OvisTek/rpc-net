@@ -1,10 +1,12 @@
 const Client = require("./../network/client/client");
-const LocalChannel = require("./channel/local-channel");
+const LocalChannel = require("./channel/local/local-channel");
+const RemoteChannel = require("./channel/remote/remote-channel");
 
 class ClientRPC {
     constructor() {
         this._client = null;
-        this._localChannel = null;
+        this._localChannel = new LocalChannel();
+        this._remoteChannel = null;
     }
 
     connect(address, port) {
@@ -15,7 +17,7 @@ class ClientRPC {
         this._client = new Client(address, port);
         this._client.connect();
 
-        this._localChannel = new LocalChannel();
+        this._remoteChannel = new RemoteChannel(this._client, this._localChannel);
 
         return this;
     }
@@ -25,7 +27,7 @@ class ClientRPC {
     }
 
     get remote() {
-        return null;
+        return this._remoteChannel;
     }
 }
 

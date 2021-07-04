@@ -39,12 +39,6 @@ class Client {
 
         return false;
     }
-
-    send(event, data) {
-        if (this._socket !== null) {
-            this._socket.emit(event, data);
-        }
-    }
 }
 
 module.exports = Client;

@@ -27,12 +27,6 @@ class Connection {
     get socket() {
         return this._socket;
     }
-
-    send(event, data) {
-        if (this._socket !== null) {
-            this._socket.emit(event, data);
-        }
-    }
 }
 
 module.exports = Connection;
