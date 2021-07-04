@@ -40,7 +40,7 @@ class RemoteChannel {
         remoteObject.socket.onAny((eventName, ...args) => {
             const split = eventName.split(":");
 
-            if (split && split.length == 3) {
+            if (split && split.length === 3) {
                 // operation
                 const op = split[0];
                 // function name
