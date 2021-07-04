@@ -12,6 +12,8 @@
 
 * * *
 
+**_rpc-net_** allows defining JavaScript/TypeScript functions on a Server or Client environment and executing them from either context. Built using [Socket.io](https://socket.io/).
+
 #### _Installation_
 
 -   Install using [npm](https://www.npmjs.com/package/@ovistek/rpc-net)
@@ -19,3 +21,49 @@
 ```console
 npm install @ovistek/rpc-net
 ```
+
+#### _Usage_
+
+Define server-side code using the following snippet and call it `server.js`
+
+```javascript
+const { ServerRPC } = require("@ovistek/rpc-net");
+
+// host a local server on port 3000
+const server = new ServerRPC();
+server.connect(3000);
+
+// define a local function on the server
+// this will be called by the client
+server.local.sayHello = (append) => {
+    return "Server Says " + append;
+};
+```
+
+Define client-side code using the following snippet and call it `client.js`
+
+```javascript
+const { ClientRPC } = require("@ovistek/rpc-net");
+
+const client = new ClientRPC();
+// connect to a hosted local server on port 3000
+client.connect("http://localhost", 3000);
+
+// call a pre-defined function on the remote server
+client.remote.sayHello("Hello World!").then((value) => {
+    console.log(value);
+}).catch((err) => {
+    console.error(err);
+});
+```
+
+-   Run the server via `node server.js`
+-   Run the client via `node client.js`
+
+Output should be `Server Says Hello World!`
+
+#### _Acknowledgements_
+
+This tool relies on the following open source projects.
+
+-   [Socket.io](https://socket.io/)
