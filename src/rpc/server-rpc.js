@@ -11,9 +11,23 @@ class ServerRPC {
         }
 
         this._server = new Server(port);
+
+        // listen for Client additions
+        this._server.onClientAdded = (client) => {
+
+        };
+
+        // listen for Client removals
+        this._server.onClientRemoved = (client) => {
+
+        };
+
         return this._server.connect();
     }
 
+    get channel() {
+        return null;
+    }
 }
 
 module.exports = ServerRPC;

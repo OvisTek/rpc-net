@@ -1,8 +1,12 @@
-const { Client } = require("./../../src/index");
+const { ClientRPC } = require("./../../src/index");
 
-const client = new Client("http://192.168.1.3", 3000);
-client.connect();
+const client = new ClientRPC();
+client.connect("http://192.168.1.3", 3000);
 
-client.socket.on("print", (data) => {
-    console.log(data);
-});
+client.local.myFunc = () => {
+
+};
+
+client.local.myFunc = () => {
+
+};

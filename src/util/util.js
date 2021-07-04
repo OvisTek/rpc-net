@@ -8,6 +8,10 @@ class Util {
         return !!obj && (typeof obj === "object" || typeof obj === "function") && typeof obj.then === "function";
     }
 
+    static isFunction(obj) {
+        return obj && (typeof obj === "function");
+    }
+
     static isError(e) {
         return e && e.stack && e.message && typeof e.stack === "string" && typeof e.message === "string";
     }
