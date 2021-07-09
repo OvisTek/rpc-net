@@ -14,7 +14,7 @@
 
 **_rpc-net_** allows defining JavaScript/TypeScript functions on a Server or Client environment and executing them from either context. Built using [Socket.io](https://socket.io/).
 
-#### _Installation_
+### _**Installation**_
 
 -   Install using [npm](https://www.npmjs.com/package/@ovistek/rpc-net)
 
@@ -22,7 +22,7 @@
 npm install @ovistek/rpc-net
 ```
 
-#### _Usage_
+### _**Usage**_
 
 Define server-side code using the following snippet and call it `server.js`
 
@@ -62,7 +62,7 @@ client.remote.sayHello("Hello World!").then((value) => {
 
 Output should be `Server Says Hello World!`
 
-#### _Acknowledgements_
+### _**Acknowledgements**_
 
 This tool relies on the following open source projects.
 
